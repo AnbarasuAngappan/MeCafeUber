@@ -100,24 +100,24 @@
 
 
             @*<ol>
-                <li>
-                    @Html.Label("Amount")
-                    @Html.TextBox("txtAmount")
-                </li>
-                <li>
-                    @Html.Label("Rate")
-                    @Html.TextBox("txtRate")
-                </li>
-                <li>
-                    @Html.Label("Year")
-                    @Html.TextBox("txtYear")
-                </li>
-            </ol>*@
+                    <li>
+                        @Html.Label("Amount")
+                        @Html.TextBox("txtAmount")
+                    </li>
+                    <li>
+                        @Html.Label("Rate")
+                        @Html.TextBox("txtRate")
+                    </li>
+                    <li>
+                        @Html.Label("Year")
+                        @Html.TextBox("txtYear")
+                    </li>
+                </ol>*@
             <button class="btn btn-success">Submit</button>
         }
     </fieldset>
 
-    
+
     @*@using (Ajax.BeginForm("QueueItem", "Mecafe",
                                 new AjaxOptions { UpdateTargetId = "divInterestDeatils" }))
         {
@@ -194,27 +194,27 @@
     @*<input type='button' class="btn btn-success" value='Submit' onclick="Myfunction()" />*@
     @*<input type="button" class="btn btn-success" value="Submit" onclick='window.open'/>*@
     @*<input type='button' class="btn btn-success" value='Statistics' />
-    </div>
-    </div>
+        </div>
+        </div>
 
-    }*@
+        }*@
 
 </body>
 </html>
 @*<script>
-    function Myfunction() {
-        debugger;
-        $.ajax({
-            url: '@Url.Action("QueueItem", "MeCafe")',
-            type: "POST",
-            data: { "Id": $('#txtAccountNumber').val() },
-            success: function (data) {
-                window.location.href = data.Url
-                debugger;
-            },
-            error(jqXHR, statusCode, errorThrown) {
-                debugger;
-            }
-        })
-    }
-</script>*@
+        function Myfunction() {
+            debugger;
+            $.ajax({
+                url: '@Url.Action("QueueItem", "MeCafe")',
+                type: "POST",
+                data: { "Id": $('#txtAccountNumber').val() },
+                success: function (data) {
+                    window.location.href = data.Url
+                    debugger;
+                },
+                error(jqXHR, statusCode, errorThrown) {
+                    debugger;
+                }
+            })
+        }
+    </script>*@

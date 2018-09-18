@@ -21,12 +21,12 @@
             <br />
             <input type='button' class="btn btn-danger" value='Stop Queue' onclick='window.location = "@Url.Action("Index", "Mecafe")";' />
         </div>
-      
+
         <div class="col-md-1 col-md-offset-8">
             @*<input type='button' class="btn btn-primary" disabled="disabled" value='Next Page' onclick='window.location = "@Url.Action("Create", "Employee")";' />*@
             @Html.PagedListPager(Model, page => Url.Action("Queue", new { page }))
         </div>
-    </div> 
+    </div>
 
     <table class="table" id="tblQueues">
         <thead class="table-bordered" style="background-color:cornflowerblue">
@@ -69,55 +69,55 @@
                 </th>
                 <th></th>
             </tr>
-            </thead>
+        </thead>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Worked)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AccountNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AccountHoldername)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Balance)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DelinquentAmount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PaymentAmount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NextWorkDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.OverLimitAmount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CyclesDelinquent)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysPastDue)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NoofBrokenPTP)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FuturePromiseDate)
-                    </td>
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Worked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountHoldername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DelinquentAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NextWorkDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OverLimitAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CyclesDelinquent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DaysPastDue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoofBrokenPTP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FuturePromiseDate)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
                         @Html.ActionLink("Details", "Details", new { id=item.ID }) |
                         @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
-                    </td>
-                </tr>
-            }
+                </td>
+            </tr>
+        }
 
-    </table>  
+    </table>
 </body>
 </html>

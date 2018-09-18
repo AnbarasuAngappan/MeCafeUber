@@ -85,7 +85,7 @@
 
         @foreach (var item in Model)
         {
-             
+
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
@@ -127,11 +127,11 @@
                     @Html.DisplayFor(modelItem => item.StoreNumber)
                 </td>
                 @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>*@
-            </tr> 
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>*@
+            </tr>
             <tr>
                 <td colspan="13">
                     @*<input type="text" id="txtValue" class="form-control" value="Sample" />*@
@@ -143,6 +143,6 @@
     </table>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-  
+
 </body>
 </html>
