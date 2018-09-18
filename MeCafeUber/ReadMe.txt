@@ -1,0 +1,1 @@
+<add name="DefaultConnection" connectionString="Data Source=IB-ANBARASU;Initial Catalog=Mecafe;User ID=sa; Password=utl@123" providerName="System.Data.SqlClient" />

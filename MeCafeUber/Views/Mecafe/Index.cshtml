@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SharedLayout.cshtml";    
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+<body>
+    <div>
+        <table style="width:80%;font-family:Calibri;font-size:20px">
+            <tr>
+                <td align="left">
+                    <input type="radio" checked="checked" />ClassQueue
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                    <!--you just need a space in a row-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayName("Collector Queue")
+                </td>             
+                <td align="left">
+                    @Html.DropDownList("CollectorQueue", new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="...Select a value...", Value = "1" },
+                            new SelectListItem{ Text="Option 1", Value = "2" },
+                            new SelectListItem{ Text="Option 2", Value = "3" },
+                            new SelectListItem{ Text="Option 3", Value = "4" },
+                        }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                    @*<div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="selection">--Select a value--</span><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Option 1</a></li>
+                            <li><a href="#">Option 2</a></li>
+                        </ul>
+                    </div>*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                    <!--you just need a space in a row-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayName("Super Queue")
+                </td>               
+                <td align="left">
+                    @Html.DropDownList("SuperQueue", new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="...Select a value...", Value = "1" },
+                            new SelectListItem{ Text="Option 1", Value = "2" },
+                            new SelectListItem{ Text="Option 2", Value = "3" },
+                            new SelectListItem{ Text="Option 3", Value = "4" },
+                        }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                    @*<div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="selection">--Select a value--</span><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Option 1</a></li>
+                            <li><a href="#">Option 2</a></li>
+                        </ul>
+                    </div>*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                    <!--you just need a space in a row-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayName("Org Number")
+                </td>
+                <td align="left">
+                    @Html.DropDownList("OrgNumber", new List<SelectListItem>
+                             {
+                                 new SelectListItem{ Text="...Select a value...", Value = "1" },
+                                 new SelectListItem{ Text="Oman-cards", Value = "2" },                                
+                                 new SelectListItem{Text="Oman-Mortgage",Value="3"},
+                                 new SelectListItem{Text="Bahrain -Loans",Value="4"},
+                                 new SelectListItem{Text="Bahrain- Mortgage",Value="5"},
+                                 new SelectListItem{ Text="UAE-cards", Value = "6" },
+                                 new SelectListItem{Text="UAE-loans",Value="7"},
+                                 new SelectListItem{Text="UAE-Mortgage",Value="8"},
+                                 new SelectListItem{Text="Egypt-Loans",Value="9"},
+                                 new SelectListItem{Text="Egypt-cards",Value="10"},
+                                 new SelectListItem{Text="Egypt-Mortgage",Value="11"},                                      
+                             }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+
+                    @*<div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="selection">--Select a value--</span><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">                           
+                            <li><a href="#">UAE-cards</a></li>
+                            <li><a href="#">UAE-loans</a></li>
+                            <li><a href="#">UAE-Mortgage</a></li>
+                            <li><a href="#">Egypt-Loans</a></li>
+                            <li><a href="#">Egypt-cards</a></li>
+                            <li><a href="#">Egypt-Mortgage</a></li>
+                            <li><a href="#">Bahrain -Loans</a></li>
+                            <li><a href="#">Bahrain- Mortgage</a></li>                           
+                        </ul>
+                    </div>*@
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                    <!--you just need a space in a row-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayName("Class Number")
+                </td>
+                <td align="left">
+                    @Html.DropDownList("ClassNumber", new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="...Select a value...", Value = "1" },
+                            new SelectListItem{ Text="901", Value = "2" },
+                            new SelectListItem{ Text="902", Value = "3" },
+                            new SelectListItem{ Text="903", Value = "4" },
+                        }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                    @*<div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="selection">--Select a value--</span><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">901</a></li>
+                            <li><a href="#">902</a></li>
+                            <li><a href="#">903</a></li>                           
+                        </ul>
+                    </div>*@
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <input type='button' class="btn btn-success" value='Auto Feed' onclick='window.location = "@Url.Action("Queue","MeCafe")";' />
+        <input type='button' class="btn btn-success" value='Manual' onclick='window.location = "@Url.Action("Queue","MeCafe")";' />
+        <input type='button' class="btn btn-success" value='Autofeed Skip' onclick='window.location = "@Url.Action("Queue","MeCafe")";' />
+        <input type='button' class="btn btn-success" value='Statistics' onclick='window.location = "@Url.Action("Queue","MeCafe")";' />
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>   
+    <script>       
+        $(".dropdown-menu li a").click(function () {
+            $(this).parents(".btn-group").find('.selection').text($(this).text());          
+
+        });
+    </script>
+
+</body>
+</html>
+

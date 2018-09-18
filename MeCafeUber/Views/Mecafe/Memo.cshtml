@@ -1,0 +1,148 @@
+﻿@model IEnumerable<MeCafeUber.Models.Memo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Memo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        /*table {
+            width: 100%;
+        }*/
+
+        /*tr {
+            background-color: #def;
+        }*/
+
+        th {
+            background-color: #8a84d7;
+        }
+
+        /*td {
+            width: 30%;
+            height: 30px;
+            color: red;
+            background: transparent;
+        }*/
+    </style>
+
+</head>
+<body>
+    <p>
+        <input type='button' class="btn btn-success" value='Add Memo' onclick='window.location = "@Url.Action("Create", "MeCafe")";' />
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SequenceNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreNumber)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+             
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Action)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActionDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SequenceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaseNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreNumber)
+                </td>
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>*@
+            </tr> 
+            <tr>
+                <td colspan="13">
+                    @*<input type="text" id="txtValue" class="form-control" value="Sample" />*@
+                    @Html.EditorFor(modelItem => item.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+  
+</body>
+</html>

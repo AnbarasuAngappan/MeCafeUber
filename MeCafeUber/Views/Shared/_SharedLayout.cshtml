@@ -1,0 +1,118 @@
+﻿@*@{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>*@
+<html>
+<head>
+    @*<meta name="viewport" content="width=device-width" />*@
+    <title>Me Cafe</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Me Cafe", "Index", "Mecafe", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <table border="1" style="width:1900px;font-family:Calibri;">
+            <tr>
+                <td colspan="2" style="text-align:center;font-size:17px;color:deepskyblue">
+                    <h3>Intellibot's Me Cafe</h3>
+                </td>
+            </tr>
+            <tr style="height:800px; font-size:22px">
+                <td valign="top" style="width:10px;text-align:center">
+                    <a href="">Menu</a><br /><br />
+                    <a href="">Locate Account</a><br /><br />
+                    @*<a href="">Customer Account Search</a><br /><br />*@
+                    @Html.ActionLink("Customer Account Search", "CustAccountSearch")<br /><br />
+                    @Html.ActionLink("Memo", "Memo", null, new { target = "_blank" }) <br /><br />
+                    <a href="">Demographic Search</a><br /><br />
+                    <a href="">Company Search</a><br /><br />
+                    <a href="">Collections</a><br /><br />
+                    @Html.ActionLink("Manual Queue Login", "Index")<br /><br />
+                    @*@Html.ActionLink("Manual Queue Login", "Queue")<br /><br />*@
+                    <a href="">Supervisor Queue Login</a><br /><br />
+                    <a href="">Collector Statistics</a><br /><br />
+                    <a href="">Move Account to Statistics</a><br /><br />
+                    <a href="">Income and Expenses</a><br /><br />
+
+                </td>
+
+                @if (ViewBag.Title == "EmptyIndex")
+                {
+                    <td style="background-color:#fce4d6; width:550px;">
+                        <div style="width:550px; margin:0 auto;">
+                            @RenderBody()
+                        </div>
+                    </td>
+
+                }
+                else if (ViewBag.Title == "Index")
+                {
+                    <td style="background-color:#fce4d6; width:550px;">
+
+                        <div style="width:550px; margin:0 auto;">
+                            @RenderBody()
+                        </div>
+                    </td>
+                }
+                else if (ViewBag.Title == "CustAccountSearch")
+                {
+                    <td style="background-color:#fce4d6; width:550px;">
+
+                        <div style="width:550px; margin:0 auto;">
+                            @RenderBody()
+                        </div>
+                    </td>
+                }
+                else if (ViewBag.Title == "QueueItem")
+                {
+                    <td valign="top" style="background-color:whitesmoke; width:550px;">
+                        <div>
+                            @RenderBody()
+                        </div>
+                    </td>
+                }
+                else
+                {
+                    <td valign="top" style="background-color:#fce4d6; width:550px;">
+                        <div>
+                            @RenderBody()
+                        </div>
+                    </td>
+                }
+
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center; font-family:Arial">
+                    <h5>© 2018 Uber Techlabs. All rights reserved.</h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)  
+</body>
+</html>

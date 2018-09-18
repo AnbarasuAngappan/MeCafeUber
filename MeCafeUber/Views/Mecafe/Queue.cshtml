@@ -1,0 +1,123 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<MeCafeUber.Models.ManualQueue>
+
+@{
+    ViewBag.Title = "Queue";
+    Layout = "~/Views/Shared/_SharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Queue</title>
+</head>
+<body>
+    <div class="row col-md-12">
+        <div class="col-md-1 col-md-offset-1">
+            <br />
+            <input type='button' class="btn btn-danger" value='Stop Queue' onclick='window.location = "@Url.Action("Index", "Mecafe")";' />
+        </div>
+      
+        <div class="col-md-1 col-md-offset-8">
+            @*<input type='button' class="btn btn-primary" disabled="disabled" value='Next Page' onclick='window.location = "@Url.Action("Create", "Employee")";' />*@
+            @Html.PagedListPager(Model, page => Url.Action("Queue", new { page }))
+        </div>
+    </div> 
+
+    <table class="table" id="tblQueues">
+        <thead class="table-bordered" style="background-color:cornflowerblue">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Worked)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().AccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().AccountHoldername)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Balance)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().DelinquentAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().PaymentAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().NextWorkDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().OverLimitAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().CyclesDelinquent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().DaysPastDue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().NoofBrokenPTP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().FuturePromiseDate)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Worked)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountHoldername)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DelinquentAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NextWorkDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OverLimitAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CyclesDelinquent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DaysPastDue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoofBrokenPTP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FuturePromiseDate)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+                    </td>
+                </tr>
+            }
+
+    </table>  
+</body>
+</html>

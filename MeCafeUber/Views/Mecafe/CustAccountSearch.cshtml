@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "CustAccountSearch";
+    Layout = "~/Views/Shared/_SharedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CustAccountSearch</title>
+</head>
+<body>
+
+
+    <fieldset>
+        @*<legend>Calculate Simple Interest</legend>*@
+        @using (Ajax.BeginForm("QueueItem", "Mecafe",
+                                new AjaxOptions { UpdateTargetId = "divInterestDeatils" }))
+        {
+            <div id="divInterestDeatils"></div>
+
+
+            <table style="width:80%;font-family:Calibri;font-size:20px">
+                <tr>
+                    <td>
+                        @Html.DisplayName("Account/Card Number")
+                    </td>
+                    <td align="left">
+                        @Html.TextBox("txtAmount")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                        <!--you just need a space in a row-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayName("Search Type")
+                    </td>
+                    <td align="left">
+                        @Html.DropDownList("SearchType", new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="...Select a value...", Value = "1" },
+                                new SelectListItem{ Text="Accounts", Value = "2" },
+                                new SelectListItem{ Text="Loans", Value = "3" },
+                                new SelectListItem{ Text="Cards", Value = "4" },
+                            }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                        <!--you just need a space in a row-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayName("Country Org")
+                    </td>
+                    <td align="left">
+                        @Html.DropDownList("CountryOrg", new List<SelectListItem>
+                                 {
+                                 new SelectListItem{ Text="...Select a value...", Value = "1" },
+                                 new SelectListItem{ Text="Oman-cards", Value = "2" },
+                                 new SelectListItem{Text="Oman-Mortgage",Value="3"},
+                                 new SelectListItem{Text="Bahrain -Loans",Value="4"},
+                                 new SelectListItem{Text="Bahrain- Mortgage",Value="5"},
+                                 new SelectListItem{ Text="UAE-cards", Value = "6" },
+                                 new SelectListItem{Text="UAE-loans",Value="7"},
+                                 new SelectListItem{Text="UAE-Mortgage",Value="8"},
+                                 new SelectListItem{Text="Egypt-Loans",Value="9"},
+                                 new SelectListItem{Text="Egypt-cards",Value="10"},
+                                 new SelectListItem{Text="Egypt-Mortgage",Value="11"},
+                                 }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                        <!--you just need a space in a row-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayName("Satisfied Collection Account")
+                    </td>
+                    <td align="left">
+                        @Html.CheckBox("NULL")
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <br />
+
+
+
+            @*<ol>
+                <li>
+                    @Html.Label("Amount")
+                    @Html.TextBox("txtAmount")
+                </li>
+                <li>
+                    @Html.Label("Rate")
+                    @Html.TextBox("txtRate")
+                </li>
+                <li>
+                    @Html.Label("Year")
+                    @Html.TextBox("txtYear")
+                </li>
+            </ol>*@
+            <button class="btn btn-success">Submit</button>
+        }
+    </fieldset>
+
+    
+    @*@using (Ajax.BeginForm("QueueItem", "Mecafe",
+                                new AjaxOptions { UpdateTargetId = "divInterestDeatils" }))
+        {
+            <div id="divInterestDeatils">
+                <table style="width:80%;font-family:Calibri;font-size:20px">
+                    <tr>
+                        <td>
+                            @Html.DisplayName("Account/Card Number")
+                        </td>
+                        <td align="left">
+                            @Html.TextBox("txtAccountNumber")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <!--you just need a space in a row-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayName("Search Type")
+                        </td>
+                        <td align="left">
+                            @Html.DropDownList("SearchType", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="...Select a value...", Value = "1" },
+                                    new SelectListItem{ Text="Option 1", Value = "2" },
+                                    new SelectListItem{ Text="Option 2", Value = "3" },
+                                    new SelectListItem{ Text="Option 3", Value = "4" },
+                                }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <!--you just need a space in a row-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayName("Country Org")
+                        </td>
+                        <td align="left">
+                            @Html.DropDownList("CountryOrg", new List<SelectListItem>
+                                     {
+                                      new SelectListItem{ Text="...Select a value...", Value = "1" },
+                                      new SelectListItem{ Text="Option 1", Value = "2" },
+                                      new SelectListItem{ Text="Option 2", Value = "3" },
+                                      new SelectListItem{ Text="Option 3", Value = "4" },
+                                     }, new { @class = "btn btn-default dropdown-toggle btn-group" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                            <!--you just need a space in a row-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayName("Satisfied Collection Account")
+                        </td>
+                        <td align="left">
+                            @Html.CheckBox("NULL")
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <div>
+                    @*<input type='button' class="btn btn-success" value='Submit' onclick="var $link = $('#create_link'); var id = $('#txtAccountNumber').val(); $link.attr('href', '@Url.Action("QueueItem", "MeCafe")?Id='+id); $link.click();" />
+                        <a href="#" id="create_link" style="display:none;" role="button"></a>*@
+    @*<input type='button' class="btn btn-success" value='Submit' onclick="Myfunction()" />*@
+    @*<input type="button" class="btn btn-success" value="Submit" onclick='window.open'/>*@
+    @*<input type='button' class="btn btn-success" value='Statistics' />
+    </div>
+    </div>
+
+    }*@
+
+</body>
+</html>
+@*<script>
+    function Myfunction() {
+        debugger;
+        $.ajax({
+            url: '@Url.Action("QueueItem", "MeCafe")',
+            type: "POST",
+            data: { "Id": $('#txtAccountNumber').val() },
+            success: function (data) {
+                window.location.href = data.Url
+                debugger;
+            },
+            error(jqXHR, statusCode, errorThrown) {
+                debugger;
+            }
+        })
+    }
+</script>*@
