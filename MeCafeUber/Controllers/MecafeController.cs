@@ -27,9 +27,9 @@ namespace MeCafeUber.Controllers
             return View();
         }
 
-        public ActionResult Queue(int ? page)
+        public ActionResult Queue(int? page)
         {
-            return View(applicationDbContext.ManualQueueContext.ToList().ToPagedList(page ?? 1,25));
+            return View(applicationDbContext.ManualQueueContext.ToList().ToPagedList(page ?? 1, 25));
         }
 
 
@@ -42,10 +42,18 @@ namespace MeCafeUber.Controllers
         [HttpPost]
         public ActionResult QueueItem()
         {
+            try
+            {
+                string principle = Convert.ToString(Request["txtAmount"].ToString());
+                var Que = applicationDbContext.customerAccountSearches.Where(q => q.AccountNumber == principle).ToList();
+                return View(Que);
 
-            string principle = Convert.ToString(Request["txtAmount"].ToString());
-            var Que = applicationDbContext.customerAccountSearches.Where(q => q.AccountNumber == principle).ToList();
-            return View(Que);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+          
 
             #region
             // decimal principle = Convert.ToDecimal(Request["txtAccountNumber"].ToString());
@@ -76,8 +84,16 @@ namespace MeCafeUber.Controllers
 
         public ActionResult Memo()
         {
-            var memo = applicationDbContext.memos.OrderByDescending(E=>E.ID).ToList();
-           return  View(memo);
+            try
+            {
+                var memo = applicationDbContext.memos.OrderByDescending(E => E.ID).ToList();
+                return View(memo);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
         }
 
 
@@ -94,11 +110,10 @@ namespace MeCafeUber.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Memo employee = new Memo();
-                    TryUpdateModel<Memo>(employee); //UpdateModel<Employee>(employee); -> this Throws the Exception when the validation fails(UpdateViewModel)
-                    //This Function inspects all the HttpRequest such as posted form data, 
-                    //querry string, cookies and server variables and populate in the Employee Object.
-                    applicationDbContext.memos.Add(employee);
+                    Memo objmemo = new Memo();
+                    TryUpdateModel<Memo>(objmemo); //UpdateModel<Employee>(employee); -> this Throws the Exception when the validation fails(UpdateViewModel)
+                                                   //This Function inspects all the HttpRequest such as posted form data,querry string, cookies and server variables and populate in the objmemo Object.
+                    applicationDbContext.memos.Add(objmemo);
                     applicationDbContext.SaveChanges();
                     return RedirectToAction("Memo");
                 }

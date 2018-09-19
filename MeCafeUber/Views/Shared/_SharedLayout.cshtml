@@ -43,15 +43,13 @@
             <tr style="height:800px; font-size:22px">
                 <td valign="top" style="width:10px;text-align:center">
                     <a href="">Menu</a><br /><br />
-                    <a href="">Locate Account</a><br /><br />
-                    @*<a href="">Customer Account Search</a><br /><br />*@
+                    <a href="">Locate Account</a><br /><br />                
                     @Html.ActionLink("Customer Account Search", "CustAccountSearch")<br /><br />
                     @Html.ActionLink("Memo", "Memo", null, new { target = "_blank" }) <br /><br />
                     <a href="">Demographic Search</a><br /><br />
                     <a href="">Company Search</a><br /><br />
                     <a href="">Collections</a><br /><br />
-                    @Html.ActionLink("Manual Queue Login", "Index")<br /><br />
-                    @*@Html.ActionLink("Manual Queue Login", "Queue")<br /><br />*@
+                    @Html.ActionLink("Manual Queue Login", "Index")<br /><br />                  
                     <a href="">Supervisor Queue Login</a><br /><br />
                     <a href="">Collector Statistics</a><br /><br />
                     <a href="">Move Account to Statistics</a><br /><br />
@@ -113,6 +111,6 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)  
+    @RenderSection("scripts", required: false)
 </body>
 </html>
